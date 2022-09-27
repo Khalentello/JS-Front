@@ -3,13 +3,17 @@ var desktopMenu = document.querySelector('.desktop-menu');
 var mobileMenuIcon = document.querySelector('.menu');
 var mobileMenu = document.querySelector('.mobile-menu');
 var shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
+var closeProductDetailIcon = document.querySelector('.product-detail-close');
 var shoppingCartList = document.querySelector('#shoppingCartContainer');
 var productDetail = document.querySelector('#productDetailContainer');
 var cardsContainer = document.querySelector('.cards-container');
+var darkDiv = document.querySelector('.dark');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 mobileMenuIcon.addEventListener('click',toggleMobileMenu);
 shoppingCartIcon.addEventListener('click',toggleShoppingCartList);
+closeProductDetailIcon.addEventListener('click',closeProductDetail);
+
 
 function toggleDesktopMenu (){
     desktopMenu.classList.toggle('inactive');
@@ -19,12 +23,24 @@ function toggleDesktopMenu (){
 function toggleMobileMenu (){
     mobileMenu.classList.toggle('inactive');
     productDetail.classList.add('inactive');
+    productDetail.classList.add('inactive');
 }
 function toggleShoppingCartList (){
     shoppingCartList.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetail.classList.add('inactive');
+}
+function openProductDetail (){
+    productDetail.classList.remove('inactive');
+    darkDiv.classList.remove('inactive');
+    shoppingCartList.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+}
+function closeProductDetail (){
+    productDetail.classList.add('inactive');
+    darkDiv.classList.add('inactive');
 }
 
 const productList = [];
@@ -64,6 +80,7 @@ function renderProducts(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click',openProductDetail);
 
         const productInfo = document.createElement ('div');
         productInfo.classList.add('product-info');
@@ -96,3 +113,4 @@ function renderProducts(arr){
     }
 }
 renderProducts(productList);
+
