@@ -129,7 +129,8 @@ nav {
 .mobile-menu {
     padding: 24px;
     position: absolute;
-    top: 60px;
+    top: 62px;
+    background-color: var(--white);
 }
 .mobile-menu a {
     text-decoration: none;
@@ -163,9 +164,11 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
 }
 .title-container {
     display: flex;
+    margin-bottom: 12px;
 }
 .title-container img {
     transform: rotate(180deg);
@@ -183,7 +186,7 @@ nav {
     background-color: var(--text-input-field);
     margin-bottom: 24px;
     border-radius: 8px;
-    padding: 0 24px;
+    padding: 24px;
 }
 .order p:nth-child(1) {
     display: flex;
